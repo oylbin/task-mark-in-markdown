@@ -2,9 +2,14 @@
   "name": "task-mark-in-markdown",
   "displayName": "Task mark in markdown",
   "description": "use ctrl+t to add task status mark in markdown",
+  "publisher": "oylbin",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.52.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oylbin/task-mark-in-markdown"
   },
   "categories": [
     "Other"

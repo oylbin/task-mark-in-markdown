@@ -2,8 +2,6 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-import * as Util from './utils';
-
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -17,13 +15,13 @@ export function activate(context: vscode.ExtensionContext) {
 	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('task-mark-in-markdown.helloWorld', () => {
 		// The code you place here will be executed every time your command is executed
-		const document = Util.getActiveTextEditorEdit();
-		const cursorPos = Util.getCursorPosition();
-		const curLine = Util.getLine(document, cursorPos);
 		const editor = vscode.window.activeTextEditor;
 		if (editor == undefined) {
 			return;
 		}
+		const document = editor.document;
+		const cursorPos = editor.selection.active;
+		const curLine = document.lineAt(cursorPos).text;
 
 		/* 
 		try to find '**TODO**' or '【done】' in line
@@ -75,4 +73,4 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }
